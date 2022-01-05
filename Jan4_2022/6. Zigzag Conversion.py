@@ -26,12 +26,15 @@ class Solution(object):
         
         for i in range(numRows):
             counter = i
+            alternate = 0
             while counter < len(s):
                 ret_str += s[counter]
-                if counter%2 == 0:
+                if alternate%2 == 0:
                     counter += current
+                    alternate = 1
                 else:
                     counter += alt
+                    alternate = 0
             
             current = current-2 if current != 2 else largest
             alt = alt+2 if alt != largest else 2
