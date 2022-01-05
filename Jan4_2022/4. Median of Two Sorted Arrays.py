@@ -3,6 +3,7 @@
 The overall run time complexity should be O(log (m+n)).'''
 
 # Not the best (13.smth percentile)
+# But it works :)
 
 class Solution(object):
     def findMedianSortedArrays(self, nums1, nums2):
