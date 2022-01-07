@@ -28,4 +28,4 @@ class Solution(object):
         if not stack:
             return True
         else:
-            return False
+            return False 
