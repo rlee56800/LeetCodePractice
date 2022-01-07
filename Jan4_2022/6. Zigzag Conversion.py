@@ -11,8 +11,37 @@ Write the code that will take a string and make this conversion given a number o
 string convert(string s, int numRows);
 '''
 
-#ALMOST WORKS
+class Solution(object):
+    def convert(self, s, numRows):
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+        
+        if numRows == 1:
+            return s
+        
+        zig = [''] * numRows
+        
+        count = 0
+        down = False
+        for char in s:
+            zig[count] += char
+            if count==0 or count==numRows-1:
+                down = not down
+            count = count + 1 if down else count - 1
+        
+        ret_str = ""
+        for zag in zig:
+            ret_str += zag
+        
+        return ret_str
+            
 
+'''
+# OLD
+# This would've been cool if it worked
 class Solution(object):
     def convert(self, s, numRows):
         """
@@ -40,5 +69,6 @@ class Solution(object):
             alt = alt+2 if alt != largest else 2
         
         return ret_str
+'''
             
         
