@@ -1,7 +1,5 @@
 '''Given a string s, find the length of the longest substring without repeating characters.'''
 
-# doesn't work w input s = "dvdc" (clears entire line by second d)
-
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
         """
@@ -16,8 +14,7 @@ class Solution(object):
             if char in letters:
                 if len(letters) > totals:
                     totals = len(letters)
-                letters = ""
+                letters = letters[letters.index(char)+1:]
             letters+= char
         
-        return max(totals, len(letters))
-        
+        return max(totals, len(letters))       
