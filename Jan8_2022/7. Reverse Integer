@@ -1,0 +1,53 @@
+'''
+Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+'''
+
+class Solution(object):
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        
+        
+        if x < 0:
+            sign = -1
+            new_x = x * -1
+        else:
+            sign = 1
+            new_x = x
+        
+        num = int(str(new_x)[::-1])
+        
+        if num > 2147483647:
+            return 0
+        
+        return num * sign
+        
+
+'''
+# From when I thought they meant reverse the binary number....
+# I think this is a better challenge
+class Solution(object):
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        
+        binary = bin(x) # x in binary
+        if x < 0:
+            sign = -1
+            binary = binary[3:]
+        else:
+            sign = 1
+            binary = binary[2:]
+        cur_bin = 1 # current binary value
+        num = 0
+        
+        for i in range(len(binary)):
+            num = num + cur_bin if binary[i] == '1' else num + 0
+            cur_bin *= 2
+                
+        return num * sign
+        '''
