@@ -1,0 +1,24 @@
+'''An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5.
+
+Given an integer n, return the nth ugly number.'''
+class Solution:
+    def nthUglyNumber(self, n: int) -> int:
+        two = 0 # occurrence of 2
+        three = 0 # occurrece of 3
+        five = 0 # occurrence of 5
+        
+        if n <= 3:
+            return n
+        
+        nums = [1, 2, 3]
+        i = 3
+        
+        while len(nums) <= n:
+            if i == 5:
+                nums.append(5)
+            elif i/2 in nums or i/3 in nums or i/5 in nums:
+                nums.append(i)
+            i += 1
+        
+        print(nums)
+        return nums[-1]
