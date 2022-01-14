@@ -11,8 +11,9 @@ class Solution:
         
         seen = []
         
-        for i in nums:
-            if i in seen:
-                return i
-            else:
-                seen.append(i)
+        i = 0
+        while nums[i] not in seen:
+            seen.append(nums[i])
+            i += 1
+        
+        return nums[i]
