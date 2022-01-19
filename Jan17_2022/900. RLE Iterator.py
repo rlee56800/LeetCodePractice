@@ -20,19 +20,13 @@ class RLEIterator:
             self.generated_arr.extend([encoding[i+1]] * encoding[i])
 
     def next(self, n: int) -> int:
-        self.pointer += n
-        #print(self.generated_arr[self.pointer:])
-        if self.pointer > len(self.generated_arr):
+        if n > len(self.generated_arr):
+            self.generated_arr = []
             return -1
         else:
-            return self.generated_arr[self.pointer-1]
-        #if n > len(self.generated_arr):
-        #    self.generated_arr = []
-        #    return -1
-        #else:
-        #    ret = self.generated_arr[n-1]
-        #    del self.generated_arr[:n]
-        #    return ret
+            ret = self.generated_arr[n-1]
+            del self.generated_arr[:n]
+            return ret
 
 # Your RLEIterator object will be instantiated and called as such:
 # obj = RLEIterator(encoding)
